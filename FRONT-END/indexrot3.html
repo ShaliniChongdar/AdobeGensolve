@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classifier</title>
+    <link rel="stylesheet" href="assets/css/main1.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300&display=swap">
+    <link rel="stylesheet" href="assets/css/style1.css">
+    <style>
+        body {
+            background-image: url('pprbg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: 'Google Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+        nav {
+            position: fixed; /* Fixes the nav at the top */
+            top: 0;
+            left: 0;
+            width: 100%; /* Make the nav bar full-width */
+            background-color: #000000;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1; /* Ensure the nav is above the white box */
+        }
+        .logo {
+            color: white;
+            font-size: 24px;
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        ul li {
+            margin: 0 10px;
+        }
+        ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .white-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%; /* Adjust the width as needed */
+            max-width: 1000px; /* Adjust the maximum width as needed */
+            height: 60%; /* Adjust the height as needed */
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 0; /* Ensure it's below the nav */
+        }
+        .left-segment {
+            flex: 1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .left-segment img {
+            margin-top: 40px;
+            width: 250px; /* Smaller square image */
+            height: 250px;
+            object-fit: cover;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+        }
+        .upload-button {
+            margin-top: 10px;
+            background-color: #8c0000; /* Button color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .upload-button:hover {
+            background-color: #ffa3d3; /* Darker button color on hover */
+        }
+        .right-segment {
+            flex: 1;
+            padding-right: 50px; /* Added padding */
+            background-image: url('images/i28.jpg'); /* Set your image path here */
+            background-size: cover; /* Ensure the image covers the container */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent image repetition */
+            border-radius: 10px;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            position: relative; /* Ensure proper positioning */
+            width: 100%; /* Ensure full width of the container */
+            height: 100%; /* Extend height of the container */
+            overflow: hidden; /* Hide any overflowing content */
+        }
+        .right-segment img {
+            margin-top: 25px;
+            width: 130%; /* Fit image horizontally */
+            height: 25%; /* Maintain aspect ratio */
+            object-fit: cover; /* Cover the container while maintaining aspect ratio */
+            border-radius: 10px;
+            display: block; /* Ensure it's a block element */
+        }
+        .proceed-button {
+            position: absolute; /* Position button absolutely within container */
+            bottom: 150px; /* Distance from the bottom */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Adjust for centering */
+            background-color: white; /* Button color */
+            color: rgb(124, 9, 9); /* Text color */
+            border: none;
+            padding: 15px; /* Vertical padding */
+            width: 250px; /* Elongated button width */
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px; /* Slightly larger font size */
+            font-weight: bold; /* Bold text */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Optional shadow */
+            z-index: 1; /* Ensure the button is above the image */
+            text-align: center; /* Center text horizontally */
+        }
+        .proceed-button:hover {
+            background-color: #f0f0f0; /* Lighter color on hover */
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 0%; }
+            25% { background-position: 100% 0%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+        .result {
+    position: fixed; /* Fixes the result box in place relative to the viewport */
+    bottom: 20px; /* Distance from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+    color: #333; /* Text color */
+    border: 2px solid #ddd; /* Border color */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center; /* Center text inside the div */
+    max-width: 80%; /* Adjust the width as needed */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Optional shadow */
+    z-index: 2; /* Ensure it's above other content */
+    width: auto; /* Allow width to adjust based on content */
+    min-width: 200px; /* Minimum width for better readability */
+}
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Curvetopia</div>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#">Explore</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="white-box">
+        <div class="left-segment">
+            <img id="preview-image" src="images/TY695.jpg" alt="Uploaded Image" />
+            <button class="upload-button" onclick="document.querySelector('input[type=file]').click();">Upload Image</button>
+        </div>
+        <div class="right-segment">
+            <!-- Centered image -->
+            <img src="images/YT65.jpg" alt="Centered Image">
+            <!-- Proceed button -->
+            <button class="proceed-button" onclick="proceedWithSelection()">CONTINUE</button>
+        </div>
+        <div class="result" id="result">
+            <!-- Prediction result will be displayed here -->
+        </div>
+    </div>
+
+    <input type="file" style="display: none;" onchange="handleFile(this)">
+
+    <script>
+        function handleFile(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('preview-image').src = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function proceedWithSelection() {
+            // Replace with your actual code to send image data to your H5 model backend
+            const image = document.getElementById('preview-image').src;
+            fetch('YOUR_BACKEND_URL', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ image: image })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // Handle response from backend
+                document.getElementById('result').textContent = 'Predicted class: ' + data.predicted_class;
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                document.getElementById('result').textContent = 'An error occurred.';
+            });
+        }
+
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(this);
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById('result').textContent = 'Error: ' + data.error;
+                } else {
+                    document.getElementById('result').textContent = 'Predicted class: ' + data.predicted_class;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('result').textContent = 'An error occurred.';
+            });
+        });
+    </script>
+</body>
+</html>

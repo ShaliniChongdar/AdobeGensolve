@@ -1,0 +1,185 @@
+@font-face {
+    font-family: 'Yavome';
+    src: url('../webfonts/Yavome.ttf') format('truetype');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    background-color: black;
+    color: white;
+    padding: 10px 20px; /* Adjust padding as needed */
+    position: fixed;
+    width: 100%; /* Ensures the nav bar spans the full width */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Google Sans', sans-serif;
+}
+
+nav .logo {
+    color: transparent;
+    font-family: 'Yavome', sans-serif; /* Ensure this matches your font-face declaration */
+    background: linear-gradient(to right, red, white); /* Red-white gradient text color */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem; /* Increase font size as needed */
+    padding-left: 20px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around; /* Ensures equal spacing between items */
+    flex-grow: 1;
+    padding-right: 20px;
+}
+
+nav ul li:last-child a {
+    background-color: yellow;
+    color: black; /* Optional: Change text color for contrast */
+    padding: 5px 10px; /* Adjust padding as needed */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+nav ul li {
+    flex: 1;
+    text-align: center;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 300; /* Thin font */
+    font-size: 1.2rem; /* Increase font size for menu items */
+}
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.banner-image {
+    width: 100%; /* Adjust width if you want the image to be smaller */
+    height: auto;
+    display: block;
+    margin: 10px 0; /* Adjust margin as needed */
+    object-fit: cover; /* Optional: ensures the image covers the area */
+}
+
+main {
+    padding-top: 60px; /* Adjust based on nav height */
+}
+.feedback-section {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.feedback-section h2 {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.feedback-section p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.feedback-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.feedback-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.feedback-form input, .feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+
+.feedback-form button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.feedback-form button:hover {
+    background-color: darkred;
+}
+.content {
+    display: flex;
+    height: calc(100vh - 60px); /* Adjust the height as needed */
+    padding: 20px;
+    background-color: white; /* Ensures the background is white below the image */
+}
+
+.left {
+    width: 50%;
+    padding: 20px;
+}
+
+.left h2 {
+    margin-top: 0;
+    color: black;
+}
+
+.upload-box {
+    background-color: rgb(98, 97, 97);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px; /* Adjust width as needed */
+    border: 2px solid black; /* Black border */
+    margin-top: 20px; /* Space between the h2 and the gray box */
+}
+
+.upload-box p {
+    margin: 0 0 10px;
+}
+
+#file-upload {
+    margin-top: 10px;
+}
+
+.right {
+    width: 50%; /* Adjusted width to fit layout */
+    display: flex;
+    justify-content: flex-end; /* Align the box to the right */
+    align-items: center;
+    padding-right: 20px; /* Optional: Add some padding to the right */
+}
+
+.centered-box {
+    width: 60%;
+    height: 80%;
+    border: 1px solid #000000; /* Black border */
+    border-radius: 20px;
+    background-color: #200000;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center content vertically and horizontally */
+}

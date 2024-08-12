@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Page with Navigation Bar</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300&display=swap">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px; /* Reduced padding to shift contents left */
+            background-color: #000000;
+            color: white;
+            font-family: 'Google Sans', sans-serif;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            background: linear-gradient(to right, red, white);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 128px; /* 128 pixel gap between elements */
+            margin-top: 50px;
+        }
+
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 60%;
+            margin-bottom: 30px;
+        }
+
+        .box img {
+            width: 60%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .box button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .box button:hover {
+            background-color: #555;
+        }
+
+        .feedback-section {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feedback-form label {
+            margin-top: 10px;
+        }
+
+        .feedback-form input, .feedback-form textarea {
+            margin-top: 5px;
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .feedback-form button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .feedback-form button:hover {
+            background-color: #555;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <nav>
+        <div class="logo">Curvetopia</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Explore</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </nav>
+    <img src="images/b2.jpg" alt="Description of Image" class="banner-image">
+    
+    <main class="container">
+        <div class="box">
+            <img src="images/house.png" alt="Colorful House Image">
+            <div class="text-box">
+                <h1><strong>Regularise & Guess</strong></h1>
+                <p>Enhance and correct your hand-drawn doodles with our advanced shape recognition and regularization tool</p>
+                <button onclick="window.location.href='indexrot.html'">Click here</button>
+            </div>
+        </div>
+        <div class="box owl-section">
+            <img src="2.jpeg" alt="Owl Image">
+            <div class="text-box owl-text-box">
+                <h1><strong>Find Symmetry</strong></h1>
+                <p>Discover and highlight symmetrical patterns in your<br> images with our precision symmetry detection tool</p>
+                <button onclick="window.location.href='indexrot1.html'">Click here</button>
+            </div>
+        </div>
+        <div class="box">
+            <img src="3.jpeg" alt="Colorful House Image">
+            <div class="text-box">
+                <h1><strong>Complete the Image</strong></h1>
+                <p>Seamlessly fill in missing parts of your images with our intelligent completion tool, enhancing the visual integrity of your artwork</p>
+                <button onclick="window.location.href='indexrot3.html'">Click here</button>
+            </div>
+        </div>
+    </main>
+    
+    <style>
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 60%;
+            margin-bottom: 30px;
+        }
+    
+        .box img {
+            width: 50%; /* Increase the image width */
+            height: auto;
+            border-radius: 10px;
+            margin-right: 20px; /* Space between image and text */
+        }
+    
+        .text-box {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            max-width: 50%; /* Adjust text width if necessary */
+            text-align: left;
+        }
+    
+        .text-box p {
+            margin: 0;
+            line-height: 1.2em; /* Adjust line-height to fit text */
+            font-weight: bold;
+        }
+    
+        .text-box button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        .text-box button:hover {
+            background-color: #555;
+        }
+    
+        .owl-section {
+            flex-direction: row-reverse; /* Place image on the left and text on the right */
+        }
+    
+        .owl-text-box {
+            max-width: 45%; /* Adjust text width to fit increased image size */
+        }
+    
+        .owl-text-box p {
+            white-space: nowrap; /* Prevent text from wrapping */
+            overflow: hidden;
+            text-overflow: ellipsis; /* Add ellipsis if text overflows */
+        }
+    </style>
+    </body>
+    <div class="feedback-section">
+        <h2>Feedback</h2>
+        <p>We'd love to hear from you. Please provide your feedback below:</p>
+        <form class="feedback-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    </html>
+    

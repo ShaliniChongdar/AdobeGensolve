@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('../uploads/Desktop - 5.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 60%;
+}
+
+/*nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #000;
+    color: white;
+    padding: 10px 20px;
+}
+
+nav span {
+    cursor: pointer;
+}
+
+.login-button {
+    background-color: #ffb300;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}*/
+
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.image-box {
+    width: 45%;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+}
+
+.download-button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+form input[type="file"] {
+    margin: 10px 0;
+}
